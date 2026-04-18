@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NexLink Pro | Enterprise Control</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+</head>
+<body>
+    <div class="app-wrapper">
+        <aside class="sidebar">
+            <div class="logo">NexLink<span>.pro</span></div>
+            <nav>
+                <div class="nav-item active">Management</div>
+            </nav>
+        </aside>
+
+        <main class="main-content">
+            <header class="top-bar">
+                <h2>URL Shortener</h2>
+                <div class="status-indicator">● Enterprise Mode</div>
+            </header>
+
+            <section class="generator-card">
+                <div class="input-container">
+                    <input type="url" id="longUrl" placeholder="Paste destination URL...">
+                    <div class="controls">
+                        <label>Count: <input type="number" id="linkCount" value="1" min="1" max="5"></label>
+                        <label>Expires in: 
+                            <select id="expiryTime">
+                                <option value="1">1 Minute</option>
+                                <option value="60">1 Hour</option>
+                                <option value="1440">24 Hours</option>
+                            </select>
+                        </label>
+                    </div>
+                    <button onclick="generateAdvancedLinks()" id="generateBtn">Generate & Track</button>
+                </div>
+            </section>
+
+            <section class="stats-section">
+                <h3>Active Analytics</h3>
+                <div class="table-container">
+                    <table id="linksTable">
+                        <thead>
+                            <tr>
+                                <th>Short Link</th>
+                                <th>Clicks</th>
+                                <th>Status</th>
+                                <th>QR Code</th>
+                            </tr>
+                        </thead>
+                        <tbody id="results-body">
+                            </tbody>
+                    </table>
+                </div>
+            </section>
+        </main>
+    </div>
+    <div id="qr-modal" class="modal" onclick="this.style.display='none'">
+        <div id="qrcode"></div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
